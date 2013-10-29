@@ -34,7 +34,7 @@ public function p_signup(){
 
 	 # Confirmation
 		#echo 'You\'re signed up';
-		Router::redirect("/users/p_test/");
+		Router::redirect("/");
 
 
 
@@ -55,6 +55,7 @@ public function login() {
 
     # Render template
         echo $this->template;
+
 
 } 
 
@@ -87,6 +88,7 @@ public function p_login(){
         	# setting the cookie, cookie name: token, value: token, TTL:1 year, path: '/' the entire domain.
         		//echo "Logged IN";
         		setcookie("token", $token, strtotime('+1 year'), '/');
+        		echo "You are logged in!";
         		Router::redirect("/");
         }
  } #EO p_login
@@ -115,7 +117,8 @@ public function profile($user_name = NULL) {
 
 	# If user is blank, they're not logged in; redirect them to the login page
 		if(!$this->user) {
-        Router::redirect('/users/login');
+        //Router::redirect('/users/login');
+			die('members only');
         }
 
     # set up the view

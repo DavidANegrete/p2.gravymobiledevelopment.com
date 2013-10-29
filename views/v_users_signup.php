@@ -1,23 +1,48 @@
-<h2>Sign Up</h2>
 
-<form method='POST' action='/users/p_signup'>
 
-    First Name<br>
-    <input type='text' name='first_name'>
-    <br><br>
 
-    Last Name<br>
-    <input type='text' name='last_name'>
-    <br><br>
+<div class = "section">
+    <div class = "wrapper">
+       
+        <h1>Sign Up</a></h1>
+        
+         <form method='POST' action='/users/p_signup'>
+            <table>
+                <tr>
+                    <th>
+                        <label for="first">First Name</label>
+                    </th>
+                    <td>
+                        <input type='text' name='first_name' id = "first">
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="last">Last Name</label>
+                    </th>
+                    <td>
+                        <input type='text' name='last_name' id = "last">
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="email">Email</label>
+                    </th>
+                    <td>
+                        <input type='text' name='email' id = "email">
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="password">Password</label>
+                    </th>
+                    <td>
+                        <input type='password' name='password' id = "password">
+                    </td>
+                </tr>
+            </table>
+            <input type='submit' value='Sign up'>
+        </form>
+    </div>
+</div>
 
-    Email<br>
-    <input type='text' name='email'>
-    <br><br>
-
-    Password<br>
-    <input type='password' name='password'>
-    <br><br>
-
-    <input type='submit' value='Sign up'>
-
-</form>
