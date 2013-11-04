@@ -1,17 +1,17 @@
 <?php
 class users_controller extends base_controller {
-public $date = "12/12/12";
+
 public function __construct() {
 	parent::__construct();
+    $GLOBALS["error"] = "";
+
 	
 }
-public function index(){
-	echo "This is the index page";
-}
+
 public function signup() {
 	# Setup view
 		$this->template->content = View::instance('v_users_signup');
-		$this->template->title   = "Sign Up";
+		$this->template->title   = "Sign Up!";
 
 	# Render template
 		echo $this->template;
@@ -30,11 +30,11 @@ public function p_signup(){
     	$_POST['token'] = sha1(TOKEN_SALT.$_POST['email'].Utils::generate_random_string()); 
 
 	# DB insertion
-		$user_id = DB::instance(DB_NAME)->insert('users', $_POST);
+		DB::instance(DB_NAME)->insert('users', $_POST);
 
 	 # Confirmation
 		#echo 'You\'re signed up';
-		Router::redirect("/");
+		#Router::redirect("/users/profile");
 
 
 
@@ -48,7 +48,8 @@ echo '</pre>';
 }
 
 public function login() {
-	
+
+
     # Setup view
         $this->template->content = View::instance('v_users_login');
         $this->template->title   = "Login";
@@ -79,8 +80,11 @@ public function p_login(){
     # If we didn't find a matching token in the database, it means the login failed
         if(!$token) {
 
+            $GLOBALS['error'] = 'Check input and try again!';
+
+            var_dump($GLOBALS['error']);
         	# Send them back to the login page
-        		Router::redirect("/users/login/");
+        		Router::redirect("/users/login/", $GLOBALS['error']);
 
     # But if we did, login succeeded! 
         } else {
@@ -89,7 +93,7 @@ public function p_login(){
         		//echo "Logged IN";
         		setcookie("token", $token, strtotime('+1 year'), '/');
         		echo "You are logged in!";
-        		Router::redirect("/");
+        		Router::redirect("/users/profile");
         }
  } #EO p_login
 
@@ -118,26 +122,14 @@ public function profile($user_name = NULL) {
 	# If user is blank, they're not logged in; redirect them to the login page
 		if(!$this->user) {
         //Router::redirect('/users/login');
-			die('members only');
+			Router::redirect("/");
         }
 
     # set up the view
         $this->template->content = View::instance('v_users_profile');
         
-        $this->template->title = "Profile";
+       $this->template->title = "Profile";
 
-        $client_files_head = Array(
-	'/css/prolie.css',
-	'/css/master.css'
-	);
-
-        $this->template->client_files_head = Utils::load_client_files($client_files_head);
-
-        $client_files_body = Array(
-	'/js/prolie.js'
-	);
-
-        $this->template->client_files_body = Utils::load_client_files($client_files_body);
 
     #pass the data to the view
         $this->template->content->user_name = $user_name;
@@ -145,6 +137,52 @@ public function profile($user_name = NULL) {
     #Display the view
         echo $this->template;
 }#EO profile
+
+public function settings(){
+
+    # set up the view
+    $this->template->content = View::instance('v_users_settings');
+
+    $this->template->title = "Settings";
+
+    #Display the view
+    echo $this->template;
+
+}
+
+
+public function p_settings_delete($error = null){
+
+    # If user is blank, they're not logged in; redirect them to the login page
+    if(!$this->user) {
+        $this->template->content->error = $error;
+
+        Router::redirect('/users/settings');
+
+            //If not logged in, display the login box
+        }
+    else{
+
+            //Define view parameters
+            $this->template->content = View::instance('v_users_login');
+            $this->template->title   = "Login";
+
+            //Pass error variable to the view
+
+
+
+            //Display view
+            echo $this->template;
+
+        }//En
+    }
+
+
+
+}
+
+
+
 
 }#EOC
 

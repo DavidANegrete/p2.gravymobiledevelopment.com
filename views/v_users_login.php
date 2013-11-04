@@ -21,6 +21,9 @@
                     </td>
                 </tr>
             </table>
+            <tr>
+                <?=$GLOBALS['error']?>
+            </tr>
             <input type='submit' value='Enter'>
         </form>
     </div>

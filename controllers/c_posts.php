@@ -20,7 +20,7 @@ class posts_controller extends base_controller {
         # Render template
         echo $this->template;
 
-    }#EO __construct
+    }#EO add
 
     public function p_add() {
 
@@ -35,7 +35,7 @@ class posts_controller extends base_controller {
         DB::instance(DB_NAME)->insert('posts', $_POST);
 
         # Quick and dirty feedback
-        echo "Your post has been added. <a href='/posts/add'>Add another</a>";
+        Router::redirect("/posts");
     }#EO p_add
 
     public function index(){
@@ -44,13 +44,19 @@ class posts_controller extends base_controller {
         $this->template->content = view::instance('v_posts_index');
 
         #Get posts by user id
-        $q = "SELECT
-                posts .* ,
-                users.first_name,
-                users.last_name
-             FROM posts
-             INNER JOIN users
-             ON posts.user_id = users.user_id";
+        $q = 'SELECT
+            posts.content,
+            posts.created,
+            posts.user_id AS post_user_id,
+            users_users.user_id AS follower_id,
+            users.first_name,
+            users.last_name
+        FROM posts
+        INNER JOIN users_users
+            ON posts.user_id = users_users.user_id_followed
+        INNER JOIN users
+            ON posts.user_id = users.user_id
+        WHERE users_users.user_id = '.$this->user->user_id;
 
 
         $posts = DB::instance(DB_NAME)->select_rows($q);
@@ -104,7 +110,7 @@ class posts_controller extends base_controller {
         # Do the insert
         DB::instance(DB_NAME)->insert('users_users', $data);
 
-        # Send them back
+        # Send them back to post
         Router::redirect("/posts/users");
 
     }

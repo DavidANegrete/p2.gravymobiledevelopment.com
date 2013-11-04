@@ -3,7 +3,7 @@ class practice_controller extends base_controller {
 
 public function test_db(){
 /*$q = "INSERT INTO users
-	 SET first_name = 'Albert', 
+	 SET first_name = 'Albert',
 	 last_name = 'Einstien'";
 echo $q;
 
@@ -19,11 +19,19 @@ $new_user = Array(
 	);
 
 */
-$q = "SELECT email 
-	  FROM users
-	  WHERE user_id = 10";
+$_POST["numb"] = 1;
+    $GLOBALS["error"] = '';
 
-echo DB::instance(DB_NAME)->select_field($q);
+
+
+if($_POST["numb"] == 1){
+    var_dump($GLOBALS);
+}
+else{
+    Router::redirect("/bios/add");
+
+}
+
 }
 
 
@@ -38,4 +46,3 @@ echo DB::instance(DB_NAME)->select_field($q);
 
 
 
-?>

@@ -16,19 +16,16 @@
 <body>	
 	<div>
 		<div class = "wrapper">
-			<h3 class ="branding-title"><a href="./">Needs Fixing EP</a></h3>
-			<ul class="nav">
-				<li class="my-profile"><a href="/users/">my profile</a></li>
-				<li class="log-out"><a href="/users/logout">log out</a></li>
+			<h3 class ="branding-title"><a href="./">Yapper</a></h3>
+			<?php if($user): ?>
+                <li class="settings"><a href="/users/settings">settings</a></li>
+                <li class="log-out"><a href="/users/logout">log out</a></li>
+                <li class="home"><a href="/users/profile">home</a></li>
+   			<?php else: ?>
 				<li class="sign-in"><a href="/users/login">sign  in</a></li>
 				<li class="sign-up"><a href="/users/signup">sign up</a></li>
-                <li class="posts"><a href="/posts/index">posts</a></li>
-
-			</ul>
-
-
+			<?php endif; ?>
 		</div>
-
 
 	</div>
 
