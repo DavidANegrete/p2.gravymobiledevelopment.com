@@ -34,7 +34,7 @@ public function p_signup(){
 
 	 # Confirmation
 		#echo 'You\'re signed up';
-		#Router::redirect("/users/profile");
+		Router::redirect("/users/profile");
 
 
 
@@ -138,54 +138,61 @@ public function profile($user_name = NULL) {
         echo $this->template;
 }#EO profile
 
-public function settings(){
+public function settings($error = NULL){
 
-    # set up the view
-    $this->template->content = View::instance('v_users_settings');
-
-    $this->template->title = "Settings";
-
-    #Display the view
-    echo $this->template;
-
-}
-
-
-public function p_settings_delete($error = null){
-
-    # If user is blank, they're not logged in; redirect them to the login page
+    #if not logged in redirect
     if(!$this->user) {
+        Router::redirect('/');
+    }else{
+
+        //Define view parameters
+        $this->template->content = View::instance('v_users_settings');
+        $this->template->title   = "Settings";
+
+        //Pass error variable to the view
         $this->template->content->error = $error;
 
-        Router::redirect('/users/settings');
 
-            //If not logged in, display the login box
-        }
-    else{
-
-            //Define view parameters
-            $this->template->content = View::instance('v_users_login');
-            $this->template->title   = "Login";
-
-            //Pass error variable to the view
+        //Display view
+        echo $this->template;
 
 
 
-            //Display view
-            echo $this->template;
+    }
+}#EO settings
 
-        }//En
+#function to process the delete
+public function p_settings_delete(){
+
+    # Sanitize the user entered data to keep hackers out
+    $_POST = DB::instance(DB_NAME)->sanitize($_POST);
+
+
+    $_POST['password'] = sha1(PASSWORD_SALT.$_POST['password']);
+
+    $q =  "SELECT token
+          FROM users
+          WHERE user_id = '".$this->user->user_id."'
+          AND password = '".$_POST['password']."'";
+
+
+    $token = DB::instance(DB_NAME)->select_field($q);
+
+    if(!$token){
+        Router::redirect("/users/settings/?error");
+
+    } else {
+
+        DB::instance(DB_NAME)->delete('users', "WHERE user_id = '".$this->user->user_id."'");
+
+        $this->template->content = View::instance('v_users_settings_confirm');
+        $this->template->title   = "Deleted";
+
+        //Display view
+        echo $this->template;
+
     }
 
-
-
 }
-
-
-
-
 }#EOC
-
-
-
 

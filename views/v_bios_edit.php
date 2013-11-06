@@ -1,6 +1,3 @@
-<?php foreach($bios as $bio): ?>
-    <?php $school= $bio['hobbies']; ?>
-<?php endforeach; ?>
 
 
 <div class = "section">
@@ -15,7 +12,7 @@
                         <label for="school">School</label>
                     </th>
                     <td>
-                        <input type='text' name='school' id = "school" > <?=$bio['school']?>
+                        <input type='text' name='school' id = "school" >
                     </td>
                 </tr>
                 <tr>
@@ -23,7 +20,7 @@
                         <label for="hometown">Hometown</label>
                     </th>
                     <td>
-                        <input type='text' name='hometown' id = "hometown" value = > <?=$bio['hometown']?>
+                        <input type='text' name='hometown' id = "hometown" value = >
                     </td>
                 </tr>
                 <tr>
@@ -31,7 +28,7 @@
                         <label for="hobbies">Hobbies</label>
                     </th>
                     <td>
-                        <input type='text' name='hobbies' id = "hobbies"  > <?=$bio['hobbies']?>
+                        <input type='text' name='hobbies' id = "hobbies"  >
                     </td>
                 </tr>
             </table>

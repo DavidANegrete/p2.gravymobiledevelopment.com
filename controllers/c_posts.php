@@ -35,7 +35,7 @@ class posts_controller extends base_controller {
         DB::instance(DB_NAME)->insert('posts', $_POST);
 
         # Quick and dirty feedback
-        Router::redirect("/posts");
+        Router::redirect("/posts/index");
     }#EO p_add
 
     public function index(){
@@ -51,7 +51,7 @@ class posts_controller extends base_controller {
             users_users.user_id AS follower_id,
             users.first_name,
             users.last_name
-        FROM posts
+            FROM posts
         INNER JOIN users_users
             ON posts.user_id = users_users.user_id_followed
         INNER JOIN users
@@ -91,10 +91,19 @@ class posts_controller extends base_controller {
         # Store our results (an array) in the variable $connections
         $connections = DB::instance(DB_NAME)->select_array($q, 'user_id_followed');
 
-        # Pass data (users and connections) to the view
+        #get the bio
+        $q = 'SELECT bios . *
+         FROM  `bios`
+         INNER JOIN users ON bios.user_id = '.$this->user->user_id;
+
+        $bios = DB::instance(DB_NAME)->select_rows($q);
+
+
+
+        # Pass data (users, connections and bios) to the view
         $this->template->content->users       = $users;
         $this->template->content->connections = $connections;
-
+        $this->template->content->bios        = $bios;
         # Render the view
         echo $this->template;
     }#EO users
