@@ -1,4 +1,4 @@
-*! normalize.css - http://github.com/necolas/normalize.css */
+/*! normalize.css - http://github.com/necolas/normalize.css */
 
 /* ==========================================================================
    HTML5 display definitions
@@ -123,32 +123,8 @@ a:hover {
  */
 
 h1 {
-	font-family: 'Press Start 2P', cursive;
-  	width: 1000px;
-  	margin: 0 auto;
-  	text-align: center, ;
-  	font-size: 75px;
-  	line-height:150px;
-  	text-align:center;
-  	text-shadow: 
-    0px 1px #003e58,
-    0px 2px #003e58,
-    0px 3px #003e58,
-    0px 4px #003e58,
-    0px 5px #003e58,
-    0px 6px #00628B,
-    0px 6px 10px rgba(1,1,1,0.25),
-    0px 6px 3px rgba(1,1,1,0.8);
-  	color: #111;
-  	/*transform: rotate3d(1, 2.0, 3.0, -10deg) skewX(-10deg);*/
-  	-webkit-transform: rotate3d(1, 2.0, 3.0, -10deg) skewX(-10deg);
-  	-o-transform: rotate3d(1, 2.0, 3.0, -10deg) skewX(-10deg);
-  	-webkit-touch-callout: none;
-  	-webkit-user-select: none;
-  	-khtml-user-select: none;
-  	-moz-user-select: none;
-  	-ms-user-select: none;
-  	user-select: none
+    font-size: 2em;
+    margin: 0.67em 0;
 }
 
 h2 {
@@ -218,10 +194,9 @@ mark {
  * Addresses margins set differently in IE6/7.
  */
 
-p {
-    font-size: 12px;
-	text-align: center;
- 
+p,
+pre {
+    margin: 1em 0;
 }
 
 /*
@@ -528,6 +503,8 @@ table {
 html {overflow-y: scroll; overflow-x: hidden;}
 body {font-family: 'Oswald', sans-serif; background:#f0eeed; color: #676767;}
 
+
+
 .wrapper {width: 980px; margin: 0 auto;}
 .header:after {content:"";height:0;display:block;visibility:hidden;clear:both;}
 .header {background: #ff8400; border-bottom: 5px solid #f16702;}
@@ -547,7 +524,7 @@ body {font-family: 'Oswald', sans-serif; background:#f0eeed; color: #676767;}
     text-align: right;
     background: url('../img/nav-sprite.png') no-repeat 0px 105px;
     text-transform: uppercase;
-    white-space: nowrap; 
+    white-space: nowrap;
 }
 .header .nav li.on a {text-decoration: underline;}
 .header .nav li a:hover, .header .nav li a:active {color: #FFE200;}
@@ -613,143 +590,3 @@ body {font-family: 'Oswald', sans-serif; background:#f0eeed; color: #676767;}
     font-size: 14px;
     margin: 0;
 }
-.section.page:after {content:"";display:block;visibility:hidden;height:0;clear:both;}
-.section.page {padding: 34px 0; background: white;}
-.section.page h1 {
-    font-size: 24px; 
-    text-align: center;
-    text-transform: uppercase;
-    line-height: 1.6;
-    font-weight: normal;    
-}
-.section.page .shirt-details h1 {
-    text-align: left;
-}
-.section.page p {width: 375px; margin-left: auto; margin-right: auto; }
-.section.page .shirt-details h1 .price {color: #9d9f4e; padding-right: 10px; font-size: 34px;}
-.section.shirts {padding-bottom: 42px; background: #fff;}
-.section.shirts h2 {
-    font-size: 24px; 
-    color: #c0bfbe;
-    text-align: center;
-    text-transform: uppercase;
-    line-height: 1.6;
-    font-weight: normal;
-}
-.section.shirts ul.products {margin: 0 0 -17px 0; padding: 0; width: 997px;}
-.section.shirts ul.products li {
-    display: inline-block;
-    list-style: none;
-    border: 1px solid #e3e1e0;
-    -webkit-border-radius: 2px;
-    border-radius: 2px;
-    width: 202px;
-    text-align: center;
-    text-transform: lowercase;
-    padding: 14px;
-    background: #f0eeed;
-    margin: 0 0 17px 17px;
-    position: relative;
-    left: -17px;
-}
-.section.shirts ul.products li a:hover:after {
-    content: '+';
-    font-size: 50px; position: absolute; top: -10px; right: 25px; color: #f16702; vertical-align: top;    
-}
-.section.shirts ul.products li a {
-    background: white;
-    display: block;
-    padding: 30px 0 10px;
-    text-decoration: none;
-    color: #999;
-    opacity: .9;
-}
-.section.shirts ul.products li a:hover {
-    opacity: 1;
-    color: #666;
-}
-.section.shirts ul.products li img {
-    width: 190px;
-}
-.section.shirts ul.products li p {
-    margin-left: 0;
-    margin-right: 0;
-    width: auto;
-}
-
-.shirt-picture {
-    float: left;
-    width: 460px;
-    text-align: center;
-    border: 1px solid #d9d9d9;
-    padding: 14px;
-    background: #f0eeed;    
-}
-.shirt-picture span {
-    background: white;
-    display: block;
-    width: 100%;
-    padding: 36px 0 61px;
-}
-.shirt-picture img {width: 292px;}
-.shirt-details {
-    width: 460px;
-    float: right;
-}
-.shirt-details form {
-    margin-left: 0;
-}
-form {width: 375px; margin: 34px auto;}
-form tr {
-    border: 1px solid #CCC;
-    background: #f4f3f2;
-}
-form table {width: 375px; margin-bottom: 16px;}
-form th {
-    width: 85px;
-    border-right: 1px solid #CCC;
-    vertical-align: middle;
-    padding: 8px;
-}
-form td {
-    padding: 15px 15px;
-}
-form td select,
-form td input,
-form td textarea {
-    width: 100%;
-}
-form input[type="submit"] {
-    width: 375px;
-    text-align: center;
-    border: 1px solid #8e8e46;
-    background: #111;
-    color: #FFF;
-    -webkit-border-radius: 2px;
-    border-radius: 2px;    
-    font-size: 14px;
-    text-transform: uppercase;
-    padding: 14px;
-}
-
-.footer {
-    background: #f0eeed;
-    padding: 42px 0;
-    font-size: 12px;
-    color: #a5a5a5;
-    font-family: Helvetica, Arial, sans-serif;
-}
-.footer ul {margin: 0; padding: 0; float: left;}
-.footer ul li {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: inline-block;
-    text-transform: lowercase;
-}
-.footer ul li:after {content:" | "}
-.footer ul li:last-child:after {content:"";}
-.footer p {margin: 0; text-align: right; padding-right: 3px;}
-.footer a {text-decoration: none; color: #539def; margin: 0 10px;}
-.footer li:first-child a {margin-left: 4px;}
-.footer a:hover, .footer a:active {text-decoration: underline;}

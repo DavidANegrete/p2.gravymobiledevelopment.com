@@ -8,6 +8,8 @@
         <time datetime="<?=Time::display($post['created'],'Y-m-d G:i')?>">
             <?=Time::display($post['created'])?>
         </time>
+        <br>
+        <a href='/posts/edit/?user=<?=$post['post_user_id']?>&post=<?=$post['post_id']?> '>Edit</a>
 
     </article>
 

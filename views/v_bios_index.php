@@ -1,6 +1,7 @@
 <?php foreach($bios as $bio): ?>
 <?php endforeach; ?>
 
+
     <div class = "bio">
 
         <h1>Bio</h1>

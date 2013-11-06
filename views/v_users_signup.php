@@ -1,7 +1,7 @@
 
 
 
-<div class = "section">
+<div class = "section page">
     <div class = "wrapper">
        
         <h1>Sign Up</a></h1>

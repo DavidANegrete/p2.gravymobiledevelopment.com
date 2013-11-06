@@ -1,7 +1,7 @@
-<div class = "section">
+<div class = "section page">
     <div class = "wrapper">
        
-        <h1>Log In</a></h1>
+        <h1>Log In</h1>
         
          <form method='POST' action='/users/p_login'>
             <table>

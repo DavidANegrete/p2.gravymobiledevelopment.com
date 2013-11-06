@@ -5,11 +5,11 @@
     <?php $pcode = ""; ?>
 <?php endif; ?>
 
-<div class = "section">
+<div class = "section page">
     <div class = "wrapper">
         <h1>Settings</h1>
         <p>If you would like to delete your profile please enter your password.</p>
-        <br><br>
+        <br>
         <form method='POST' action='/users/p_settings_delete'>
             <table>
                 <tr>

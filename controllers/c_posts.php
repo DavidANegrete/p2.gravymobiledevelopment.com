@@ -34,7 +34,7 @@ class posts_controller extends base_controller {
         # Insert
         DB::instance(DB_NAME)->insert('posts', $_POST);
 
-        # Quick and dirty feedback
+        # Send back to the posts
         Router::redirect("/posts/index");
     }#EO p_add
 
@@ -47,6 +47,7 @@ class posts_controller extends base_controller {
         $q = 'SELECT
             posts.content,
             posts.created,
+            posts.post_id,
             posts.user_id AS post_user_id,
             users_users.user_id AS follower_id,
             users.first_name,
@@ -134,6 +135,58 @@ class posts_controller extends base_controller {
         Router::redirect("/posts/users");
 
     }
+
+    #method to edit the post
+    public function edit(){
+
+        #get the user_id and the post_id from the url
+        $user = $_GET["user"];
+        $post = $_GET["post"];
+
+        #can edit if it is the same user
+        if($user == $this->user->user_id) {
+
+            # Setup view
+            $this->template->content = View::instance('v_posts_edit');
+            $this->template->title   = "Edit Post";
+
+            $q = 'SELECT *
+            FROM  `posts`
+            WHERE user_id = '.$user.'
+            AND post_id ='.$post.'';
+
+            $post_db = DB::instance(DB_NAME)->select_rows($q);
+
+            $this->template->content->post_db       = $post_db;
+
+            echo $this->template;
+
+
+
+
+        }else{
+            Router::redirect("/posts/index");
+        }
+
+    }#EO edit
+
+    public function p_edit(){
+        # Associate this post with this user
+        $_POST['user_id']  = $this->user->user_id;
+
+        #adding when it was modified and the
+        $_POST['modified'] = Time::now();
+        $_POST['created'] = Time::now();
+
+
+        # Insert
+        DB::instance(DB_NAME)->insert('posts', $_POST);
+
+        # Send back to the posts
+        Router::redirect("/posts/index");
+
+
+    }#EO p_edit
 
 
 }#EO Class
