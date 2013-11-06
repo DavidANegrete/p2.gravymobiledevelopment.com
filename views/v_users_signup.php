@@ -1,8 +1,8 @@
 
 
 
-<div class = "section page">
-    <div class = "wrapper">
+
+    <div div id = "page-wrapper">
        
         <h1>Sign Up</a></h1>
         
@@ -44,5 +44,5 @@
             <input type='submit' value='Sign up'>
         </form>
     </div>
-</div>
+
 

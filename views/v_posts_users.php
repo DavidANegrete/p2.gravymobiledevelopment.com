@@ -1,7 +1,6 @@
 
-
-
-<?php foreach($users as $user): ?>
+<div id = "page-wrapper">
+    <?php foreach($users as $user): ?>
 
     <!-- Print this user's name -->
     <?=$user['first_name']?> <?=$user['last_name']?>
@@ -16,5 +15,5 @@
     <?php endif; ?>
 
     <br><br>
-
-<?php endforeach; ?>
+        <?php endforeach; ?>
+    </div>

@@ -1,7 +1,7 @@
 
 
-<div class = "section">
-    <div class = "wrapper">
+
+    <div id = "page-wrapper">
 
         <h1>Bio</a></h1>
 
@@ -35,4 +35,3 @@
             <input type='submit' value='Enter'>
         </form>
     </div>
-</div>

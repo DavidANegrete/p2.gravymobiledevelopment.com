@@ -1,5 +1,5 @@
 <?php foreach($posts as $post): ?>
-    <article>
+<div id = "page-wrapper">
 
         <h1><?=$post['first_name']?> <?=$post['last_name']?> posted:</h1>
 
@@ -11,6 +11,6 @@
         <br>
         <a href='/posts/edit/?user=<?=$post['post_user_id']?>&post=<?=$post['post_id']?> '>Edit</a>
 
-    </article>
+  </div>
 
 <?php endforeach; ?>

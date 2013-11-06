@@ -1,7 +1,7 @@
-<div class = "section">
-    <div class = "wrapper">
 
-        <h1>Bio</a></h1>
+    <div id = "page-wrapper">
+
+        <h1>Bio</h1>
 
         <form method='POST' action='/bios/p_add'>
             <table>
@@ -33,4 +33,4 @@
             <input type='submit' value='Enter'>
         </form>
     </div>
-</div>
+

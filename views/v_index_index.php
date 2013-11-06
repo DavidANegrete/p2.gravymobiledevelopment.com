@@ -1,5 +1,5 @@
-<div class="section page">
-    <div class="wrapper">
+
+    <div id = "page-wrapper">
         <?php if($user):?>
             <h1>What's yappining? <?=$user->first_name?> </h1>
         <?php else: ?>
@@ -7,4 +7,4 @@
        <?php endif; ?>
     </div>
 
-</div>
+

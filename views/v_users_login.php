@@ -1,5 +1,5 @@
-<div class = "section page">
-    <div class = "wrapper">
+
+    <div id = "page-wrapper">
        
         <h1>Log In</h1>
         
@@ -27,5 +27,5 @@
             <input type='submit' value='Enter'>
         </form>
     </div>
-</div>
+
 

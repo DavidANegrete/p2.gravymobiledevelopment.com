@@ -1,5 +1,5 @@
-<div class="section page">
-    <div class = "wrapper">
+
+    <div id = "page-wrapper">
         <h1>Yapp About It</h1>
         <form method='POST' action='/posts/p_add'>
             <label for='content'></label><br>

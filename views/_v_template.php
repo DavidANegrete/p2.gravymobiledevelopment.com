@@ -13,12 +13,14 @@
 	
 </head>
 
-<body>	
-	<div class = "header">
-		<div class = "wrapper">
-			<h1 class ="branding-title"><a href="./">Yapper</a></h1>
+<body>
 
-            <ul class="nav">
+<div id = "title"><a href="/">Yapper</a></div>
+
+    <div id = "menu">
+
+
+            <ul>
                 <?php if($user): ?>
                     <li class="settings"><a href="/users/settings">settings</a></li>
                     <li class="log-out"><a href="/users/logout">log out</a></li>
@@ -27,7 +29,8 @@
                     <li class="sign-in"><a href="/users/login">sign  in</a></li>
 				    <li class="sign-up"><a href="/users/signup">sign up</a></li>
                 <?php endif; ?>
-        </div>
+            </ul>
+
     </div>
 
 	<?php if(isset($content)) echo $content; ?>

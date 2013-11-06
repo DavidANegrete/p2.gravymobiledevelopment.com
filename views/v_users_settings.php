@@ -5,8 +5,8 @@
     <?php $pcode = ""; ?>
 <?php endif; ?>
 
-<div class = "section page">
-    <div class = "wrapper">
+
+    <div id = "page-wrapper">
         <h1>Settings</h1>
         <p>If you would like to delete your profile please enter your password.</p>
         <br>
@@ -24,6 +24,6 @@
             <input type='submit' value='Delete Profile'>
         </form>
     </div>
-</div>
+
 
 
